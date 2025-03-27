@@ -23,11 +23,11 @@ const NetworkGraph = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    // Define node colors
+    // Define node colors - updated for dark theme
     const nodeColors = {
-      center: '#3b82f6', // blue-500
-      direct: '#3b82f6', // blue-500
-      extended: '#8b5cf6', // purple-500
+      center: '#8b5cf6', // purple-500
+      direct: '#6366f1', // indigo-500
+      extended: '#ec4899', // pink-500
     };
     
     // Define node types and positions
@@ -83,7 +83,7 @@ const NetworkGraph = () => {
           ctx.beginPath();
           ctx.moveTo(sourceNode.x, sourceNode.y);
           ctx.lineTo(targetNode.x, targetNode.y);
-          ctx.strokeStyle = 'rgba(148, 163, 184, 0.3)'; // slate-300 with opacity
+          ctx.strokeStyle = 'rgba(148, 163, 184, 0.2)'; // slate-300 with opacity
           ctx.lineWidth = 1.5;
           ctx.stroke();
           
@@ -105,7 +105,7 @@ const NetworkGraph = () => {
         // Node shadow
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius + 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
         ctx.fill();
         
         // Node circle
@@ -119,14 +119,14 @@ const NetworkGraph = () => {
         );
         
         if (node.type === 'center') {
-          gradient.addColorStop(0, '#60a5fa'); // blue-400
-          gradient.addColorStop(1, '#2563eb'); // blue-600
-        } else if (node.type === 'direct') {
-          gradient.addColorStop(0, '#60a5fa'); // blue-400
-          gradient.addColorStop(1, '#2563eb'); // blue-600
-        } else {
           gradient.addColorStop(0, '#a78bfa'); // purple-400
           gradient.addColorStop(1, '#7c3aed'); // purple-600
+        } else if (node.type === 'direct') {
+          gradient.addColorStop(0, '#818cf8'); // indigo-400
+          gradient.addColorStop(1, '#4f46e5'); // indigo-600
+        } else {
+          gradient.addColorStop(0, '#f472b6'); // pink-400
+          gradient.addColorStop(1, '#db2777'); // pink-600
         }
         
         ctx.fillStyle = gradient;
@@ -135,12 +135,12 @@ const NetworkGraph = () => {
         // Draw node glow effect
         const nodeGlow = (Math.sin(time * 0.05 + nodes.indexOf(node)) + 1) * 0.5;
         ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius + 3 + nodeGlow * 2, 0, Math.PI * 2);
+        ctx.arc(node.x, node.y, node.radius + 3 + nodeGlow * 3, 0, Math.PI * 2);
         ctx.fillStyle = node.type === 'center' ? 
-                      'rgba(59, 130, 246, 0.2)' : // blue-500 with opacity
+                      'rgba(139, 92, 246, 0.2)' : // purple-500 with opacity
                       (node.type === 'direct' ? 
-                        'rgba(59, 130, 246, 0.15)' : // blue-500 with lower opacity
-                        'rgba(139, 92, 246, 0.15)'); // purple-500 with opacity
+                        'rgba(99, 102, 241, 0.15)' : // indigo-500 with opacity
+                        'rgba(236, 72, 153, 0.15)'); // pink-500 with opacity
         ctx.fill();
         
         // Node label

@@ -1,101 +1,158 @@
 
-import { Mail } from 'lucide-react';
+import { Mail, Instagram, Facebook, Twitter, Linkedin, ArrowUp } from 'lucide-react';
+import { useState } from 'react';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically handle the subscription logic
+    console.log('Subscribing email:', email);
+    console.log('Message:', message);
+    setEmail('');
+    setMessage('');
+    // You could display a success message or toast notification here
+  };
+
   return (
-    <footer className="bg-gray-50 dark:bg-gray-950 py-16 border-t border-gray-200 dark:border-gray-800">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-          <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-2 text-2xl font-bold mb-4">
-              <div className="relative w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-accent flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent opacity-70 blur-[2px]"></div>
-                <div className="relative z-10 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                </div>
-              </div>
-              <span className="font-semibold">
-                Link<span className="text-primary">Grid</span><span className="text-xs align-top text-accent ml-0.5">AI</span>
-              </span>
-            </a>
-            
-            <p className="text-foreground/70 mb-4 max-w-md">
-              LinkGrid is transforming professional networking with AI-powered connections, intelligent matchmaking, and streamlined communications.
+    <footer className="bg-black text-white relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -left-40 -bottom-40 w-[500px] h-[500px] rounded-full bg-purple-800/20 blur-3xl"></div>
+        <div className="absolute right-0 top-0 w-[400px] h-[400px] rounded-full bg-pink-800/10 blur-3xl"></div>
+      </div>
+      
+      {/* Main footer content */}
+      <div className="container mx-auto px-6 pt-20 pb-10 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Left column - Newsletter signup */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold gradient-text">Stay Connected</h3>
+            <p className="text-gray-300 max-w-md">
+              Join our community and never miss out on exciting network opportunities, special offers, and insider tips. By subscribing to our newsletter, you'll get exclusive updates directly in your inbox.
             </p>
             
-            <div className="flex gap-4 mb-6">
-              <a href="#" className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M23 3.01s-2.018 1.192-3.14 1.53a4.48 4.48 0 00-7.86 3v1a10.66 10.66 0 01-9-4.53s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.278-.028-.556-.08-.83C21.94 5.674 23 3.01 23 3.01z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+            <form onSubmit={handleSubscribe} className="space-y-4 mt-8">
+              <div>
+                <input 
+                  type="email" 
+                  placeholder="Email Address" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 backdrop-blur-sm text-white"
+                  required
+                />
+              </div>
+              
+              <div>
+                <textarea 
+                  placeholder="Anything we should know?" 
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 backdrop-blur-sm text-white resize-none h-24"
+                />
+              </div>
+              
+              <button 
+                type="submit" 
+                className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-purple-500/20 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+              >
+                Subscribe Now
+              </button>
+            </form>
+          </div>
+          
+          {/* Right column - Logo and links */}
+          <div className="flex flex-col md:items-end">
+            {/* Logo and description */}
+            <div className="mb-12 md:text-right">
+              <a href="#" className="flex items-center gap-2 text-2xl font-bold mb-4 md:justify-end">
+                <div className="relative w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-accent flex items-center justify-center">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent opacity-70 blur-[2px]"></div>
+                  <div className="relative z-10 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  </div>
+                </div>
+                <span className="font-semibold">
+                  Link<span className="text-primary">Grid</span><span className="text-xs align-top text-accent ml-0.5">AI</span>
+                </span>
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="4" cy="4" r="2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+              
+              <p className="text-gray-400 max-w-md ml-auto">
+                LinkGrid is transforming professional networking with AI-powered connections, intelligent matchmaking, and streamlined communications.
+              </p>
+            </div>
+            
+            {/* Footer links */}
+            <div className="grid grid-cols-3 gap-8 w-full">
+              <div>
+                <h4 className="text-lg font-semibold mb-4 text-white">Company</h4>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Home</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">About us</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Apps & Games</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Discover</a></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="text-lg font-semibold mb-4 text-white">Support</h4>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Community</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Learn</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Contact</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Blog</a></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="text-lg font-semibold mb-4 text-white">Legal</h4>
+                <ul className="space-y-2">
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Privacy Policy</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Terms & use</a></li>
+                  <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">FAQ</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            {/* Social icons */}
+            <div className="flex gap-3 mt-8">
+              <a href="#" className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800/50 hover:bg-purple-800/50 border border-gray-700 transition-colors">
+                <Instagram className="w-4 h-4 text-white" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="20" height="20" x="2" y="2" rx="5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+              <a href="#" className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800/50 hover:bg-purple-800/50 border border-gray-700 transition-colors">
+                <Facebook className="w-4 h-4 text-white" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+              <a href="#" className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800/50 hover:bg-purple-800/50 border border-gray-700 transition-colors">
+                <Twitter className="w-4 h-4 text-white" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800/50 hover:bg-purple-800/50 border border-gray-700 transition-colors">
+                <Linkedin className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Product</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Features</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Security</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Network</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Global</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Pricing</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">About</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Blog</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Careers</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Press</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Partners</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Terms and Conditions</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">Cookie Policy</a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-primary transition-colors">GDPR</a></li>
-            </ul>
-          </div>
         </div>
         
-        <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-foreground/60 text-sm">
-            © 2023 LinkGrid. All rights reserved.
+        {/* Copyright and back to top */}
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-500 text-sm">
+            © All Rights Reserved. 2024 LinkGrid
           </p>
           
           <div className="flex items-center mt-4 md:mt-0">
-            <a href="#support" className="text-foreground/70 hover:text-primary transition-colors text-sm flex items-center">
+            <a href="#support" className="text-gray-400 hover:text-purple-400 transition-colors text-sm flex items-center mr-6">
               <Mail className="w-4 h-4 mr-2" />
               support@linkgrid.org
             </a>
-            <span className="mx-4 text-gray-300">|</span>
-            <p className="text-foreground/70 text-sm">
-              Connecting professionals globally
-            </p>
+            
+            <a href="#" onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }} className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-800 hover:bg-purple-800 border border-gray-700 transition-colors">
+              <ArrowUp className="w-4 h-4 text-white" />
+            </a>
           </div>
         </div>
       </div>
