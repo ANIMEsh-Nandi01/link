@@ -13,6 +13,7 @@ const Hero = () => {
     if (!meteorContainer) return;
     
     const createMeteors = () => {
+      meteorContainer.innerHTML = '';
       for (let i = 0; i < 10; i++) {
         const meteor = document.createElement('div');
         meteor.classList.add('meteor', 'animate-meteor');
@@ -42,8 +43,9 @@ const Hero = () => {
       ref={heroRef}
       className="min-h-screen relative flex items-center justify-center pt-20 pb-16 overflow-hidden"
     >
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-indigo-50/50 dark:from-gray-900 dark:to-gray-950"></div>
+      {/* Dark grid background */}
+      <div className="absolute inset-0 bg-grid-large"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
       
       {/* Animated background effects */}
       <div className="meteors-container">
@@ -51,15 +53,15 @@ const Hero = () => {
       </div>
       
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-        <div className="absolute top-10 right-20 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute -bottom-20 left-40 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute -top-20 -left-20 w-72 h-72 bg-purple-500/10 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-float"></div>
+        <div className="absolute top-10 right-20 w-96 h-96 bg-pink-500/10 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute -bottom-20 left-40 w-80 h-80 bg-violet-500/10 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center px-3 py-1.5 mb-6 rounded-full bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-200/30">
-            <span className="text-sm font-medium text-blue-700 dark:text-blue-300">AI-Powered Networking</span>
+          <div className="inline-flex items-center px-3 py-1.5 mb-6 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-200/10">
+            <span className="text-sm font-medium text-purple-300">AI-Powered Networking</span>
           </div>
           
           <h1 className="heading-xl mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
@@ -71,26 +73,26 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <a href="#get-started" className="button-primary flex items-center">
+            <a href="#get-started" className="cyber-button flex items-center group">
               Get Started Free
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <a href="#learn-more" className="button-outline">
+            <a href="#learn-more" className="button-outline border-purple-500/20 hover:border-purple-500/40">
               Learn More
             </a>
           </div>
           
           <div className="mt-16 grid grid-cols-3 gap-12 w-full max-w-3xl opacity-0 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-primary mb-1">1.2M+</div>
+            <div className="flex flex-col items-center neo-glass rounded-xl px-4 py-6">
+              <div className="text-3xl font-bold gradient-text mb-1">1.2M+</div>
               <div className="text-sm text-foreground/70">Users Worldwide</div>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-primary mb-1">85K+</div>
+            <div className="flex flex-col items-center neo-glass rounded-xl px-4 py-6">
+              <div className="text-3xl font-bold gradient-text mb-1">85K+</div>
               <div className="text-sm text-foreground/70">Networks Created</div>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-primary mb-1">94%</div>
+            <div className="flex flex-col items-center neo-glass rounded-xl px-4 py-6">
+              <div className="text-3xl font-bold gradient-text mb-1">94%</div>
               <div className="text-sm text-foreground/70">Success Rate</div>
             </div>
           </div>
@@ -98,7 +100,7 @@ const Hero = () => {
       </div>
       
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-purple-400">
           <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
