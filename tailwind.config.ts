@@ -100,8 +100,8 @@ export default {
 					'100%': { transform: 'scale(1)', opacity: '1' }
 				},
 				'glow': {
-					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.7' }
+					'0%, 100%': { opacity: '1', filter: 'brightness(1)' },
+					'50%': { opacity: '0.85', filter: 'brightness(1.2)' }
 				},
 				'pulse-subtle': {
 					'0%, 100%': { opacity: '1' },
@@ -115,6 +115,18 @@ export default {
 					'0%': { transform: 'rotate(215deg) translateX(0)', opacity: '1' },
 					'70%': { opacity: '1' },
 					'100%': { transform: 'rotate(215deg) translateX(-500px)', opacity: '0' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' }
+				},
+				'pulse-glow': {
+					'0%, 100%': { boxShadow: '0 0 10px 2px rgba(191, 64, 191, 0.4)' },
+					'50%': { boxShadow: '0 0 20px 5px rgba(191, 64, 191, 0.7)' }
+				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
@@ -127,7 +139,15 @@ export default {
 				'glow': 'glow 3s ease-in-out infinite',
 				'pulse-subtle': 'pulse-subtle 4s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
-				'meteor': 'meteor 5s linear infinite'
+				'meteor': 'meteor 5s linear infinite',
+				'shimmer': 'shimmer 4s linear infinite',
+				'pulse-glow': 'pulse-glow 3s infinite',
+				'rotate-slow': 'rotate-slow 30s linear infinite'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'purple-pink-glow': 'linear-gradient(to right, rgba(149, 76, 233, 0.5), rgba(242, 92, 232, 0.5))',
+				'purple-shine': 'linear-gradient(110deg, #41084d 0%, #760f9b 25%, #9a0fb7, #760f9b 75%, #41084d 100%)'
 			}
 		}
 	},
