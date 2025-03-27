@@ -83,7 +83,7 @@ const CallToAction = () => {
         </div>
       </div>
       
-      <style jsx>{`
+      <style>{`
         .particle {
           position: absolute;
           background: linear-gradient(to right, #8b5cf6, #ec4899);
