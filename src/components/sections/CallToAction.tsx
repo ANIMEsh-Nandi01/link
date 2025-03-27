@@ -83,7 +83,8 @@ const CallToAction = () => {
         </div>
       </div>
       
-      <style jsx>{`
+      <style>
+        {`
         .particle {
           position: absolute;
           background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
@@ -102,7 +103,8 @@ const CallToAction = () => {
             opacity: 0.6;
           }
         }
-      `}</style>
+        `}
+      </style>
     </section>
   );
 };
