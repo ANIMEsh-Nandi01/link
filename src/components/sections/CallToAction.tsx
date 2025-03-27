@@ -46,10 +46,10 @@ const CallToAction = () => {
   }, []);
 
   return (
-    <section className="py-24 relative overflow-hidden" ref={ctaRef}>
+    <section className="py-24 relative overflow-hidden bg-purple-950" ref={ctaRef}>
       <div className="absolute inset-0 bg-grid"></div>
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-950 via-purple-950/95 to-purple-950"></div>
         
         {/* Animated background blobs */}
         <div className="absolute -top-20 -left-20 w-72 h-72 bg-purple-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-40 animate-float"></div>
@@ -70,11 +70,11 @@ const CallToAction = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#create-account" className="cyber-button group flex items-center">
+              <a href="#create-account" className="cyber-button group flex items-center justify-center rounded-full px-8">
                 Create Your Account
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="#view-pricing" className="button-outline group border-purple-500/20 hover:border-purple-500/40">
+              <a href="#view-pricing" className="button-outline group border-purple-500/20 hover:border-purple-500/40 rounded-full">
                 View Pricing
                 <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
@@ -83,8 +83,7 @@ const CallToAction = () => {
         </div>
       </div>
       
-      <style>
-        {`
+      <style jsx>{`
         .particle {
           position: absolute;
           background: linear-gradient(to right, #8b5cf6, #ec4899);
@@ -103,8 +102,7 @@ const CallToAction = () => {
             opacity: 0.6;
           }
         }
-        `}
-      </style>
+      `}</style>
     </section>
   );
 };
