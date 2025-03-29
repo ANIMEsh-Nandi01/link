@@ -1,6 +1,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { GlareCard } from '../ui/glare-card';
 
 const testimonials = [
   {
@@ -61,45 +62,47 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ testimonial, isActive }: { testimonial: typeof testimonials[0], isActive: boolean }) => (
-  <div className={`glass-card-dark rounded-2xl p-8 transition-all duration-500 flex flex-col h-full
+  <GlareCard className="w-full h-full">
+    <div className={`p-8 transition-all duration-500 flex flex-col h-full
                   ${isActive ? 'opacity-100 scale-100' : 'opacity-40 scale-95'}`}>
-    <div className="flex items-center mb-4">
-      <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-primary">
-        <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
-      </div>
-      <div>
-        <h4 className="font-bold text-lg">{testimonial.name}</h4>
-        <p className="text-sm text-foreground/70">{testimonial.role}, {testimonial.company}</p>
-      </div>
-    </div>
-    
-    <div className="flex text-yellow-400 mb-3">
-      {[...Array(5)].map((_, i) => (
-        <Star 
-          key={i} 
-          className={`w-4 h-4 ${i < testimonial.rating ? 'fill-yellow-400' : 'text-gray-400'}`} 
-        />
-      ))}
-    </div>
-    
-    <blockquote className="text-lg mb-6 flex-grow">
-      <span className="text-4xl text-primary/30">"</span>
-      {testimonial.quote}
-      <span className="text-4xl text-primary/30">"</span>
-    </blockquote>
-    
-    <div className="flex items-center justify-between mt-auto">
-      <span className="text-xs text-foreground/60">Verified Review</span>
-      {testimonial.trusted && (
-        <div className="flex items-center text-xs text-blue-400">
-          <div className="w-4 h-4 rounded-full bg-blue-400/10 flex items-center justify-center mr-1">
-            <Check className="w-2.5 h-2.5" />
-          </div>
-          Trusted Member
+      <div className="flex items-center mb-4">
+        <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-primary">
+          <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
         </div>
-      )}
+        <div>
+          <h4 className="font-bold text-lg">{testimonial.name}</h4>
+          <p className="text-sm text-foreground/70">{testimonial.role}, {testimonial.company}</p>
+        </div>
+      </div>
+      
+      <div className="flex text-yellow-400 mb-3">
+        {[...Array(5)].map((_, i) => (
+          <Star 
+            key={i} 
+            className={`w-4 h-4 ${i < testimonial.rating ? 'fill-yellow-400' : 'text-gray-400'}`} 
+          />
+        ))}
+      </div>
+      
+      <blockquote className="text-lg mb-6 flex-grow">
+        <span className="text-4xl text-primary/30">"</span>
+        {testimonial.quote}
+        <span className="text-4xl text-primary/30">"</span>
+      </blockquote>
+      
+      <div className="flex items-center justify-between mt-auto">
+        <span className="text-xs text-foreground/60">Verified Review</span>
+        {testimonial.trusted && (
+          <div className="flex items-center text-xs text-blue-400">
+            <div className="w-4 h-4 rounded-full bg-blue-400/10 flex items-center justify-center mr-1">
+              <Check className="w-2.5 h-2.5" />
+            </div>
+            Trusted Member
+          </div>
+        )}
+      </div>
     </div>
-  </div>
+  </GlareCard>
 );
 
 // Check component for trusted badge

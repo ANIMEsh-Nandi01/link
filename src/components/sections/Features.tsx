@@ -1,6 +1,7 @@
 
 import { Network, Search, Share2, BarChartHorizontal, Layers, Globe } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import { Vortex } from '@/components/ui/vortex';
 
 const FeatureCard = ({ icon: Icon, title, description, delay }: { 
   icon: React.ElementType, 
@@ -9,7 +10,7 @@ const FeatureCard = ({ icon: Icon, title, description, delay }: {
   delay: number 
 }) => (
   <div 
-    className="feature-card opacity-0 animate-scale-in" 
+    className="feature-card opacity-0 bg-black/30 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6 hover:border-blue-500/40 transition-all duration-300" 
     style={{ animationDelay: `${delay}s` }}
   >
     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
@@ -50,9 +51,17 @@ const Features = () => {
 
   return (
     <section id="features" className="py-24 relative overflow-hidden" ref={featuresRef}>
-      <div className="absolute top-0 right-0 w-full h-full overflow-hidden">
-        <div className="absolute -top-40 right-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
-        <div className="absolute -bottom-40 right-0 w-96 h-96 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+      {/* Vortex Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <Vortex 
+          backgroundColor="rgba(0,0,0,0)" 
+          baseHue={210} 
+          particleCount={500}
+          baseRadius={0.5}
+          rangeRadius={1.5}
+          baseSpeed={0.1}
+          rangeSpeed={1}
+        />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">

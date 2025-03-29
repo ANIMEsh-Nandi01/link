@@ -1,6 +1,7 @@
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Globe } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import { PinContainer } from '../ui/pin-container';
 
 const CallToAction = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -62,25 +63,107 @@ const CallToAction = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto neo-glass p-12 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] animate-pulse-glow">
-          <div className="flex flex-col items-center text-center">
-            <h2 className="heading-lg mb-6 gradient-text">Ready to Transform Your Professional Network?</h2>
-            <p className="text-lg text-gray-300 max-w-2xl mb-8">
-              Join thousands of professionals who are already experiencing the power of intelligent networking on LinkGrid.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#create-account" className="cyber-button group flex items-center relative overflow-hidden">
-                <span className="relative z-10">Create Your Account</span>
-                <ArrowRight className="relative z-10 ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-100"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 blur-md transition-opacity"></div>
-              </a>
-              <a href="#view-pricing" className="button-outline group border-purple-500/20 hover:border-purple-500/40 backdrop-blur-md">
-                View Pricing
-                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Global Reach Section */}
+          <div className="bg-[#0A0B14] rounded-xl p-8 md:p-10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-full h-full overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-teal-500/5 rounded-full mix-blend-screen filter blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-500/5 rounded-full mix-blend-screen filter blur-3xl"></div>
             </div>
+            
+            <div className="relative z-10">
+              <div className="inline-flex items-center px-3 py-1.5 mb-6 rounded-full bg-teal-500/10 border border-teal-500/20">
+                <Globe className="w-4 h-4 text-teal-400 mr-2" />
+                <span className="text-sm font-medium text-teal-400">Global Reach</span>
+              </div>
+              
+              <h2 className="text-3xl font-bold mb-6 text-white">Connect Beyond Borders</h2>
+              
+              <p className="text-gray-300 mb-10">
+                LinkGrid brings professionals together from around the world, breaking down geographical barriers to networking.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-lg font-semibold mb-4 text-white">Global User Base</h3>
+                  
+                  <div className="grid grid-cols-2 gap-6">
+                    <div>
+                      <p className="text-gray-400 text-sm">Users</p>
+                      <p className="text-2xl font-bold text-white">1M+</p>
+                    </div>
+                    
+                    <div>
+                      <p className="text-gray-400 text-sm">Countries</p>
+                      <p className="text-2xl font-bold text-white">150+</p>
+                    </div>
+                    
+                    <div>
+                      <p className="text-gray-400 text-sm">Languages</p>
+                      <p className="text-2xl font-bold text-white">40+</p>
+                    </div>
+                    
+                    <div>
+                      <p className="text-gray-400 text-sm">Industries</p>
+                      <p className="text-2xl font-bold text-white">200+</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="text-lg font-semibold mb-4 text-white">Global Benefits</h3>
+                  
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 mr-2"></div>
+                      <span className="text-gray-300 text-sm">Access international opportunities and job markets</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 mr-2"></div>
+                      <span className="text-gray-300 text-sm">Connect with industry leaders across different regions</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 mr-2"></div>
+                      <span className="text-gray-300 text-sm">Gain insights into global industry trends and practices</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mt-2 mr-2"></div>
+                      <span className="text-gray-300 text-sm">Build diverse teams and partnerships across cultures</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* PinContainer Section */}
+          <div className="h-full flex items-center justify-center">
+            <PinContainer
+              title="Join LinkGrid Today"
+              href="#create-account"
+              containerClassName="w-full max-w-lg mx-auto"
+              className="w-full p-8"
+            >
+              <div className="flex flex-col items-center text-center p-4">
+                <h2 className="heading-lg mb-6 gradient-text">Ready to Transform Your Professional Network?</h2>
+                <p className="text-lg text-gray-300 max-w-2xl mb-8">
+                  Join thousands of professionals who are already experiencing the power of intelligent networking on LinkGrid.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="#create-account" className="cyber-button group flex items-center relative overflow-hidden">
+                    <span className="relative z-10">Create Account</span>
+                    <ArrowRight className="relative z-10 ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-100"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 blur-md transition-opacity"></div>
+                  </a>
+                  <a href="#view-pricing" className="button-outline group border-purple-500/20 hover:border-purple-500/40 backdrop-blur-md">
+                    View Pricing
+                    <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  </a>
+                </div>
+              </div>
+            </PinContainer>
           </div>
         </div>
       </div>
